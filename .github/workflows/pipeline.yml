@@ -25,6 +25,8 @@ jobs:
         run: npm run build
       - name: Test
         run: npm run test
+      - name: cypress legacy
+        run: npm install --save-dev cypress --legacy-peer-deps
       - name: e2e tests
         uses: cypress-io/github-action@v5
         with:

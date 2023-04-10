@@ -15,18 +15,12 @@ jobs:
           node-version: '16'
       - name: Install dependencies
         run: npm install --legacy-peer-deps
-      - name: Install eslint
-        run: npm install eslint --save-dev
-      - name: Install parsers and plugins
-        run: npm install --save-dev @babel/eslint-parser eslint-plugin-react --legacy-peer-deps
       - name: Check style
         run: npm run eslint
       - name: Build
         run: npm run build
       - name: Test
         run: npm run test
-      - name: cypress legacy
-        run: npm install --save-dev cypress --legacy-peer-deps
       - name: e2e tests
         uses: cypress-io/github-action@v5
         with:

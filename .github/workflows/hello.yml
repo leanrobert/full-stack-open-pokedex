@@ -5,13 +5,10 @@ on:
     branches:
       - master
 
-  pull_request:
-    branches: [master]
-    types: [opened, synchronize]
-
 jobs:
   hello_world_job:
     runs-on: ubuntu-20.04
+    if: ${{ github.event_name == 'push' }}
     steps:
       - name: Say hello
         run: |

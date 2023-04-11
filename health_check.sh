@@ -1,3 +1,12 @@
 #!/bin/bash
-echo "Hello from shell script"
-exit 0 #exit status 1 means that the script "fails"
+url="http://localhost:5000/health"
+
+response=$(curl --sSl $url)
+
+if [[ "$response" =~ "ok" ]]; then
+  echo "Health check endpoint is working correctly"
+  exit 0
+else
+  echo "Error: Health check endopint returned an unexpected response."
+  exit 1
+fi
